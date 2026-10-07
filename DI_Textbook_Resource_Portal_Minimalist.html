@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DI Textbook Resource Portal</title>
+<style>
+:root{
+  --bg:#f8f8f7;
+  --card:#ffffff;
+  --text:#202020;
+  --muted:#707070;
+  --line:#dedede;
+  --accent:#202020;
+  --soft:#f1f1f1;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:1120px;margin:auto;padding:15px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{font-size:.9rem;font-weight:700;letter-spacing:.08em}
+.brand small{display:block;color:var(--muted);font-size:.68rem;font-weight:400;letter-spacing:0;margin-top:2px}
+.nav{display:none;gap:22px}
+.nav a{color:var(--muted);text-decoration:none;font-size:.85rem}
+.nav a:hover{color:var(--text)}
+main{max-width:1120px;margin:auto;padding:38px 20px 70px}
+.eyebrow{
+  color:var(--muted);font-weight:700;font-size:.72rem;
+  text-transform:uppercase;letter-spacing:.12em;
+}
+h1{font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.15;margin:7px 0 10px;font-weight:700}
+h2{margin:0 0 5px;font-size:1.15rem}
+h3{margin:0 0 5px;font-size:1rem}
+.hero p,.intro{color:var(--muted);max-width:720px;margin:0}
+.toolbar{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px;margin:26px 0;
+}
+.controls{display:grid;gap:10px}
+.search-wrap{position:relative}
+.search-wrap span{display:none}
+input,select{
+  width:100%;border:1px solid var(--line);border-radius:8px;
+  background:#fff;padding:11px 12px;color:var(--text);outline:none;
+}
+.search-wrap input{padding-left:12px}
+input:focus,select:focus{border-color:#999;box-shadow:0 0 0 2px #eee}
+.textbook-list{display:grid;gap:14px}
+.textbook-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;
+}
+.book-top{display:flex;gap:12px;align-items:flex-start}
+.book-icon{display:none}
+.book-meta{color:var(--muted);font-size:.86rem}
+.book-meta strong{color:var(--text);font-weight:600}
+.btn{
+  border:1px solid var(--text);border-radius:8px;padding:9px 13px;font-weight:600;
+  background:var(--text);color:white;
+}
+.btn.secondary{background:white;color:var(--text);border-color:var(--line)}
+.btn.full{width:100%;margin-top:15px}
+.detail{display:none;margin-top:20px;border-top:1px solid var(--line);padding-top:20px}
+.detail.active{display:block}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:25px 0 10px}
+.accordion{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;margin:8px 0}
+.accordion-head{
+  width:100%;border:0;background:#fff;padding:14px;
+  display:flex;align-items:center;justify-content:space-between;text-align:left;
+  color:var(--text);font-weight:600;
+}
+.accordion-head:hover{background:#fafafa}
+.accordion-body{display:none;padding:0 14px 14px;border-top:1px solid var(--line)}
+.accordion.open .accordion-body{display:block}
+.accordion.open .chev{transform:rotate(180deg)}
+.chev{transition:.2s;color:var(--muted)}
+.strategy-list{display:grid;gap:7px;margin-top:12px}
+.strategy-chip{
+  background:#fafafa;border:1px solid var(--line);border-radius:7px;padding:10px 11px;
+}
+.strategy-chip small{display:block;color:var(--muted);margin-top:2px}
+.empty{
+  text-align:center;padding:22px 10px;color:var(--muted);
+  background:#fafafa;border-radius:8px;margin-top:12px;font-size:.9rem;
+}
+.count{font-size:.8rem;color:var(--muted)}
+.findings{display:grid;gap:10px}
+.finding{
+  border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden;
+}
+.finding-summary{
+  padding:14px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start;
+}
+.finding-dim{font-size:.78rem;color:var(--muted);font-weight:600;margin-top:3px}
+.finding-page{font-size:.78rem;color:var(--muted)}
+.finding-detail{display:none;border-top:1px solid var(--line);padding:14px}
+.finding.open .finding-detail{display:block}
+.label{
+  font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;
+  font-weight:700;color:var(--muted);margin-bottom:3px;
+}
+.detail-block{margin-bottom:14px}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{
+  border:1px solid var(--line);border-radius:8px;padding:12px;background:#fff;
+}
+.stat .number{font-size:1.3rem;font-weight:700}
+.key-box{
+  margin-top:16px;border:1px solid var(--line);border-radius:8px;padding:15px;background:#fafafa;
+}
+.key-box ul{margin:7px 0 0;padding-left:20px}
+.hidden{display:none!important}
+.status{margin:9px 0;color:var(--muted);font-size:.8rem}
+footer{max-width:1120px;margin:auto;padding:0 20px 35px;color:var(--muted);font-size:.78rem}
+@media(min-width:700px){
+  .nav{display:flex}
+  .controls{grid-template-columns:1fr 230px}
+  .textbook-list{grid-template-columns:repeat(2,1fr)}
+  .summary-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(min-width:1050px){
+  main{padding-top:50px}
+  .textbook-list{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">DI TEXTBOOK PORTAL<small>Teacher Education Resource</small></div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#textbooks">Textbooks</a>
+      <a href="#findings">Research Results</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="textbooks">
+  <section class="hero">
+    <div class="eyebrow">Textbooks</div>
+    <h1>Selected Teacher Education Textbooks</h1>
+    <p class="intro">
+      Explore the selected textbooks and the differentiated instruction strategies
+      identified through the content analysis.
+    </p>
+  </section>
+
+  <section class="toolbar" aria-label="Textbook filters">
+    <div class="controls">
+      <div class="search-wrap">
+        <span></span>
+        <input id="bookSearch" type="search" placeholder="Search textbooks, authors, or years..." aria-label="Search textbooks">
+      </div>
+      <select id="dimensionFilter" aria-label="Filter by DI dimension">
+        <option value="all">All DI dimensions</option>
+        <option value="content"> Content</option>
+        <option value="process"> Process</option>
+        <option value="product"> Product</option>
+        <option value="environment"> Learning Environment</option>
+      </select>
+    </div>
+    <div class="status" id="bookStatus"></div>
+  </section>
+
+  <section class="textbook-list" id="bookList"></section>
+</main>
+
+<footer id="about">
+  Prototype based on the study structure: selected teacher education textbooks,
+  four DI dimensions, qualitative content analysis, and researcher-recorded findings.
+</footer>
+
+<script>
+const textbooks = [
+  {
+    id:1,
+    icon:"",
+    title:"Textbook Title 01",
+    author:"Author Name",
+    year:"20XX",
+    dimensions:{
+      content:[
+        {strategy:"Strategy 01",page:"p. 12"},
+        {strategy:"Strategy 02",page:"p. 27"}
+      ],
+      process:[
+        {strategy:"Strategy 03",page:"p. 31"}
+      ],
+      product:[],
+      environment:[
+        {strategy:"Strategy 04",page:"p. 58"}
+      ]
+    },
+    findings:[
+      {strategy:"Strategy 01",dimension:"content",page:"12",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."},
+      {strategy:"Strategy 02",dimension:"content",page:"27",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."},
+      {strategy:"Strategy 03",dimension:"process",page:"31",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."},
+      {strategy:"Strategy 04",dimension:"environment",page:"58",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."}
+    ]
+  },
+  {
+    id:2,
+    icon:"",
+    title:"Textbook Title 02",
+    author:"Author Name",
+    year:"20XX",
+    dimensions:{
+      content:[],
+      process:[
+        {strategy:"Strategy 05",page:"p. 18"},
+        {strategy:"Strategy 06",page:"p. 40"}
+      ],
+      product:[
+        {strategy:"Strategy 07",page:"p. 52"}
+      ],
+      environment:[]
+    },
+    findings:[
+      {strategy:"Strategy 05",dimension:"process",page:"18",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."},
+      {strategy:"Strategy 06",dimension:"process",page:"40",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."},
+      {strategy:"Strategy 07",dimension:"product",page:"52",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."}
+    ]
+  },
+  {
+    id:3,
+    icon:"",
+    title:"Textbook Title 03",
+    author:"Author Name",
+    year:"20XX",
+    dimensions:{
+      content:[
+        {strategy:"Strategy 08",page:"p. 22"}
+      ],
+      process:[],
+      product:[
+        {strategy:"Strategy 09",page:"p. 44"}
+      ],
+      environment:[
+        {strategy:"Strategy 10",page:"p. 61"}
+      ]
+    },
+    findings:[
+      {strategy:"Strategy 08",dimension:"content",page:"22",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."},
+      {strategy:"Strategy 09",dimension:"product",page:"44",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."},
+      {strategy:"Strategy 10",dimension:"environment",page:"61",content:"Relevant textbook content goes here.",finding:"Brief interpretation of the identified DI representation."}
+    ]
+  }
+];
+
+const dimInfo = {
+  content:{label:" Content"},
+  process:{label:" Process"},
+  product:{label:" Product"},
+  environment:{label:" Learning Environment"}
+};
+
+let activeDimension = "all";
+
+function escapeHTML(str){
+  return String(str).replace(/[&<>"']/g, m => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[m]));
+}
+
+function dimensionCount(book, dim){
+  return book.dimensions[dim].length;
+}
+
+function renderAccordion(book, dim){
+  const items = book.dimensions[dim];
+  const isFiltered = activeDimension !== "all" && activeDimension !== dim;
+  if(isFiltered) return "";
+
+  const empty = items.length === 0;
+  return `
+    <div class="accordion" data-accordion="${dim}">
+      <button class="accordion-head" type="button" aria-expanded="false"
+        onclick="toggleAccordion(this)">
+        <span>${dimInfo[dim].label}</span>
+        <span class="chev">⌄</span>
+      </button>
+      <div class="accordion-body">
+        ${
+          empty
+          ? `<div class="empty"><br><strong>No identified DI strategies</strong><br>
+              were recorded for this dimension in this textbook.</div>`
+          : `<div class="strategy-list">
+              ${items.map(x => `
+                <div class="strategy-chip">
+                  <strong>${escapeHTML(x.strategy)}</strong>
+                  <small>${escapeHTML(x.page)}</small>
+                </div>`).join("")}
+            </div>`
+        }
+      </div>
+    </div>`;
+}
+
+function renderFindings(book){
+  let list = book.findings;
+  if(activeDimension !== "all"){
+    list = list.filter(f => f.dimension === activeDimension);
+  }
+
+  if(!list.length){
+    return `<div class="empty"><br><strong>No findings to display.</strong><br>
+      No DI strategies were identified in the selected filter.</div>`;
+  }
+
+  return list.map((f,i)=>`
+    <article class="finding">
+      <div class="finding-summary">
+        <div>
+          <strong> Finding #${i+1}</strong>
+          <div class="finding-dim">${dimInfo[f.dimension].label}</div>
+          <div class="finding-page">p. ${escapeHTML(f.page)}</div>
+        </div>
+        <button class="btn secondary" type="button" onclick="toggleFinding(this)">Details</button>
+      </div>
+      <div class="finding-detail">
+        <div class="detail-block">
+          <div class="label">Strategy</div>
+          <strong>${escapeHTML(f.strategy)}</strong>
+        </div>
+        <div class="detail-block">
+          <div class="label">Relevant Content</div>
+          ${escapeHTML(f.content)}
+        </div>
+        <div class="detail-block">
+          <div class="label">Finding</div>
+          ${escapeHTML(f.finding)}
+        </div>
+        <button class="btn secondary" type="button" onclick="toggleFinding(this)">Collapse</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderBooks(){
+  const q = document.getElementById("bookSearch").value.trim().toLowerCase();
+  const list = textbooks.filter(book => {
+    const text = `${book.title} ${book.author} ${book.year}`.toLowerCase();
+    const dimensionMatches = activeDimension === "all" ||
+      book.dimensions[activeDimension].length > 0;
+    return text.includes(q) && dimensionMatches;
+  });
+
+  document.getElementById("bookStatus").textContent =
+    `${list.length} textbook${list.length===1?"":"s"} displayed` +
+    (activeDimension !== "all" ? ` • Filter: ${dimInfo[activeDimension].label}` : "");
+
+  document.getElementById("bookList").innerHTML = list.length ? list.map(book => `
+    <article class="textbook-card">
+      <div class="book-top">
+        <div class="book-icon">${book.icon}</div>
+        <div>
+          <h3>${escapeHTML(book.title)}</h3>
+          <div class="book-meta"><strong>Author/s:</strong> ${escapeHTML(book.author)}</div>
+          <div class="book-meta"><strong>Year:</strong> ${escapeHTML(book.year)}</div>
+        </div>
+      </div>
+
+      <button class="btn full" type="button" onclick="toggleBook(${book.id}, this)">
+        VIEW FINDINGS
+      </button>
+
+      <div class="detail" id="detail-${book.id}">
+        <div class="section-title">
+          <div>
+            <div class="eyebrow"> DI Strategies</div>
+            <h2>Explore this textbook</h2>
+          </div>
+        </div>
+
+        ${["content","process","product","environment"]
+          .map(dim => renderAccordion(book,dim)).join("")}
+
+        <div class="section-title" id="findings">
+          <div>
+            <div class="eyebrow"> Findings</div>
+            <h2>Detailed Findings</h2>
+          </div>
+          <span class="count">${book.findings.length} total</span>
+        </div>
+
+        <div class="findings">
+          ${renderFindings(book)}
+        </div>
+
+        <div class="section-title">
+          <div>
+            <div class="eyebrow"> Summary</div>
+            <h2>DI Representation</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          ${["content","process","product","environment"].map(dim => `
+            <div class="stat">
+              <div class="label">${dimInfo[dim].label}</div>
+              <div class="number">${dimensionCount(book,dim)}</div>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="key-box">
+          <strong> Key Findings</strong>
+          <ul>
+            <li>Most represented dimension: <em>Insert final result after coding.</em></li>
+            <li>Least represented dimension: <em>Insert final result after coding.</em></li>
+            <li>Notable pattern: <em>Insert final result after coding.</em></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  `).join("") : `
+    <div class="empty">
+      <br><strong>No matching textbooks.</strong><br>
+      Try another search or clear the dimension filter.
+    </div>`;
+}
+
+function toggleBook(id,button){
+  const el = document.getElementById(`detail-${id}`);
+  const open = el.classList.toggle("active");
+  button.textContent = open ? "HIDE FINDINGS" : "VIEW FINDINGS";
+}
+
+function toggleAccordion(button){
+  const accordion = button.closest(".accordion");
+  const open = accordion.classList.toggle("open");
+  button.setAttribute("aria-expanded",open ? "true":"false");
+}
+
+function toggleFinding(button){
+  const finding = button.closest(".finding");
+  const open = finding.classList.toggle("open");
+  finding.querySelector(".finding-detail").scrollIntoView({block:"nearest"});
+  button.textContent = open ? "Collapse" : "Details";
+}
+
+document.getElementById("bookSearch").addEventListener("input",renderBooks);
+document.getElementById("dimensionFilter").addEventListener("change",e=>{
+  activeDimension=e.target.value;
+  renderBooks();
+});
+
+renderBooks();
+</script>
+</body>
+</html>
