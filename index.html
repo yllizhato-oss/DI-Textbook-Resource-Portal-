@@ -1,66 +1,158 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research Resource Portal of the Institute of Teacher Education, Mabalacat City College">
-    <title>ITE Research Resource Portal | Mabalacat City College</title>
+    <title>DI Textbook Resource Portal</title>
 
+    <!-- Connect to CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <main class="landing-page">
 
-        <div class="logo-row">
-            <img src="images/mcc-logo.png"
-                 alt="Mabalacat City College Logo"
-                 class="school-logo">
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
 
-            <img src="images/ite-logo.png"
-                 alt="Institute of Teacher Education Logo"
-                 class="school-logo">
-        </div>
+            <div class="logos">
+                <img src="images/mcc.png" alt="MCC Logo">
+                <img src="images/ite.png" alt="Institute of Teacher Education Logo">
+            </div>
 
-        <div class="institution">
-            <p class="school-name">MABALACAT CITY COLLEGE</p>
-            <h1>INSTITUTE OF TEACHER EDUCATION</h1>
-        </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#resources">Resources</a>
+                <a href="#about">About</a>
+            </div>
 
-        <div class="divider"></div>
+        </nav>
+    </header>
 
-        <section class="research-intro">
-            <p class="eyebrow">RESEARCH RESOURCE PORTAL</p>
 
-            <h2>
-                Differentiated Instructional Materials
-                <span>Used in Textbooks</span>
-            </h2>
+    <!-- Hero Section -->
+    <main>
 
-            <p class="description">
-                A digital resource for exploring the findings and results
-                of our research.
-            </p>
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="welcome">WELCOME TO</p>
+
+                <h1>
+                    DI Textbook<br>
+                    Resource Portal
+                </h1>
+
+                <p class="description">
+                    A digital resource portal designed to provide
+                    accessible and organized educational materials
+                    for students and teachers.
+                </p>
+
+                <a href="#resources" class="explore-button">
+                    Explore Resources
+                </a>
+
+            </div>
+
         </section>
 
-        <section class="researchers">
-            <p>DEVELOPED BY</p>
-            <h3>
-                Escoto, Yllizha Roque Jazztine<br>
-                &amp; Deniel Angelo Nacpil
-            </h3>
+
+        <!-- Resources Section -->
+        <section id="resources" class="resources">
+
+            <div class="section-title">
+                <p>LEARNING MATERIALS</p>
+                <h2>Explore Our Resources</h2>
+            </div>
+
+            <div class="resource-container">
+
+                <div class="resource-card">
+                    <div class="icon">📚</div>
+                    <h3>Textbooks</h3>
+                    <p>
+                        Access available digital textbooks
+                        and learning materials.
+                    </p>
+                    <button>View Textbooks</button>
+                </div>
+
+
+                <div class="resource-card">
+                    <div class="icon">📝</div>
+                    <h3>Learning Resources</h3>
+                    <p>
+                        Find educational resources that
+                        support teaching and learning.
+                    </p>
+                    <button>View Resources</button>
+                </div>
+
+
+                <div class="resource-card">
+                    <div class="icon">🎓</div>
+                    <h3>Teacher Resources</h3>
+                    <p>
+                        Explore materials designed to
+                        support future educators.
+                    </p>
+                    <button>View Materials</button>
+                </div>
+
+            </div>
+
         </section>
 
-        <!-- This button will later connect to the main portal. -->
-        <a href="#portal" class="enter-button">
-            ENTER PORTAL
-            <span aria-hidden="true">→</span>
-        </a>
 
-        <p class="prototype-note">Research Project • Prototype</p>
+        <!-- About Section -->
+        <section id="about" class="about">
+
+            <div class="about-content">
+
+                <p>ABOUT THE PORTAL</p>
+
+                <h2>
+                    Supporting Digital
+                    Learning
+                </h2>
+
+                <p>
+                    The DI Textbook Resource Portal aims to organize
+                    educational materials into one accessible digital
+                    platform. It is designed to help students and
+                    teachers easily find and use learning resources.
+                </p>
+
+            </div>
+
+        </section>
 
     </main>
 
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logos">
+            <img src="images/mcc.png" alt="MCC Logo">
+            <img src="images/ite.png" alt="ITE Logo">
+        </div>
+
+        <p>
+            © 2026 DI Textbook Resource Portal
+        </p>
+
+        <p>
+            Institute of Teacher Education
+        </p>
+
+    </footer>
+
+
+    <!-- Connect to JavaScript -->
     <script src="script.js"></script>
+
 </body>
 </html>
