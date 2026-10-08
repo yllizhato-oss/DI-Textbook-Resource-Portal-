@@ -1,13 +1,18 @@
- // Research Resource Portal
-// Basic script for the landing page
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
 
-console.log("Research Resource Portal loaded successfully.");
+        const target = document.querySelector(this.getAttribute("href"));
 
-// This button will be connected to the actual portal later.
-const enterButton = document.querySelector(".enter-button");
-
-if (enterButton) {
-    enterButton.addEventListener("click", function () {
-        console.log("Entering the Research Resource Portal...");
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
     });
-}
+});
+
+
+// Welcome message in the browser console
+console.log("DI Textbook Resource Portal loaded successfully!");
