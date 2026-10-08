@@ -1,405 +1,240 @@
-/* ================================
-   GENERAL SETTINGS
-================================ */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7f9fc;
-    color: #1f2937;
-    line-height: 1.6;
-}
-
-
-/* ================================
-   NAVIGATION BAR
-================================ */
-
-header {
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logos {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logos img {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #1f2937;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #2563eb;
-}
-
-
-/* ================================
-   HERO SECTION
-================================ */
-
-.hero {
-    min-height: 650px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 80px 20px;
-
-    background: linear-gradient(
-        135deg,
-        #eff6ff,
-        #ffffff
-    );
-}
-
-.hero-content {
-    max-width: 900px;
-    color: #1f2937;
-}
-
-.welcome {
-    font-size: 16px;
-    letter-spacing: 4px;
-    font-weight: bold;
-    color: #2563eb;
-    margin-bottom: 20px;
-}
+ <!DOCTYPE html>
+<html lang="en">
 
-.hero h1 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 25px;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.hero h2 {
-    font-size: 26px;
-    font-weight: 500;
-    color: #2563eb;
-    margin-bottom: 20px;
-}
+    <title>DI Textbook Resource Portal</title>
 
-.description {
-    font-size: 18px;
-    max-width: 750px;
-    margin: 0 auto 35px;
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    color: #64748b;
-}
+<body>
 
-.explore-button {
-    display: inline-block;
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
 
-    padding: 14px 30px;
+            <div class="logos">
+                <img src="images/mcc.png" alt="MCC Logo">
+                <img src="images/images.jpg" alt="Institute of Teacher Education Logo">
+            </div>
 
-    background: #2563eb;
-    color: white;
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#resources">Resources</a>
+                <a href="#about">About</a>
+            </div>
 
-    text-decoration: none;
+        </nav>
+    </header>
 
-    border-radius: 8px;
 
-    font-weight: bold;
+    <!-- Hero Section -->
+    <main>
 
-    transition: 0.3s;
-}
+        <section class="hero">
 
-.explore-button:hover {
-    background: #1d4ed8;
-    transform: translateY(-3px);
+            <div class="hero-content">
 
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.15);
-}
+                <p class="welcome">
+                    HI, FUTURE EDUCATORS!
+                </p>
 
+                <h1>
+                    Differentiated Instruction Strategies
+                    in Selected Teacher Education Textbooks
+                    at Mabalacat City College:
+                    A Content Analysis
+                </h1>
 
-/* ================================
-   RESOURCES SECTION
-================================ */
+                <h2>
+                    DI Textbook Resource Portal
+                </h2>
 
-.resources {
-    padding: 90px 20px;
-    background: white;
-}
+                <p class="description">
+                    A digital textbook resource portal designed to provide
+                    future educators with accessible and organized learning
+                    materials on differentiated instruction strategies.
+                    This portal aims to support pre-service teachers in
+                    exploring instructional approaches that respond to the
+                    diverse learning needs of students.
+                </p>
 
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
+                <a href="#resources" class="explore-button">
+                    Explore Resources
+                </a>
 
-.section-title p {
-    color: #2563eb;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
+            </div>
 
-.section-title h2 {
-    font-size: 38px;
-    margin-top: 8px;
-}
+        </section>
 
-.resource-container {
-    max-width: 1100px;
-    margin: auto;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+        <!-- Resources Section -->
+        <section id="resources" class="resources">
 
-    gap: 25px;
-}
+            <div class="section-title">
 
+                <p>LEARNING MATERIALS</p>
 
-/* ================================
-   RESOURCE CARDS
-================================ */
+                <h2>
+                    Explore Our Resources
+                </h2>
 
-.resource-card {
-    background: #f8fafc;
+            </div>
 
-    padding: 40px 25px;
 
-    text-align: center;
+            <div class="resource-container">
 
-    border-radius: 12px;
+                <!-- Textbooks -->
+                <div class="resource-card">
 
-    border: 1px solid #e5e7eb;
+                    <div class="minimal-icon">
+                        ▤
+                    </div>
 
-    transition: 0.3s;
-}
+                    <h3>
+                        Textbooks
+                    </h3>
 
-.resource-card:hover {
-    transform: translateY(-8px);
+                    <p>
+                        Access selected teacher education textbooks
+                        and explore their differentiated instruction
+                        strategies.
+                    </p>
 
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.08);
-}
+                    <button>
+                        View Textbooks
+                    </button>
 
+                </div>
 
-/* ================================
-   MINIMALIST ICONS
-================================ */
 
-.minimal-icon {
-    width: 55px;
-    height: 55px;
+                <!-- Differentiated Instruction Strategies -->
+                <div class="resource-card">
 
-    margin: 0 auto 20px;
+                    <div class="minimal-icon">
+                        ☷
+                    </div>
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+                    <h3>
+                        DI Strategies
+                    </h3>
 
-    border: 1.5px solid #2563eb;
+                    <p>
+                        Explore differentiated instruction strategies
+                        identified from the selected textbooks.
+                    </p>
 
-    border-radius: 50%;
+                    <button>
+                        View Strategies
+                    </button>
 
-    color: #2563eb;
+                </div>
 
-    font-size: 25px;
 
-    font-weight: 400;
-}
+                <!-- Teacher Resources -->
+                <div class="resource-card">
 
-.resource-card h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
+                    <div class="minimal-icon">
+                        ◇
+                    </div>
 
-.resource-card p {
-    color: #64748b;
-    margin-bottom: 20px;
-}
+                    <h3>
+                        Teacher Resources
+                    </h3>
 
-.resource-card button {
-    border: none;
+                    <p>
+                        Discover learning materials that may support
+                        future educators in their teaching practice.
+                    </p>
 
-    background: #2563eb;
+                    <button>
+                        View Materials
+                    </button>
 
-    color: white;
+                </div>
 
-    padding: 10px 20px;
+            </div>
 
-    border-radius: 6px;
+        </section>
 
-    font-weight: bold;
 
-    cursor: pointer;
+        <!-- About Section -->
+        <section id="about" class="about">
 
-    transition: 0.3s;
-}
+            <div class="about-content">
 
-.resource-card button:hover {
-    background: #1d4ed8;
-}
+                <p>
+                    ABOUT THE PORTAL
+                </p>
 
+                <h2>
+                    Supporting Future Educators
+                </h2>
 
-/* ================================
-   ABOUT SECTION
-================================ */
+                <p>
+                    The DI Textbook Resource Portal was developed as
+                    a digital companion to the study entitled
+                    "Differentiated Instruction Strategies in Selected
+                    Teacher Education Textbooks at Mabalacat City College:
+                    A Content Analysis." It provides an organized space
+                    where future educators can explore selected textbooks,
+                    identified differentiated instruction strategies,
+                    and related learning resources.
+                </p>
 
-.about {
-    padding: 100px 20px;
+            </div>
 
-    background: #eff6ff;
-}
+        </section>
 
-.about-content {
-    max-width: 800px;
+    </main>
 
-    margin: auto;
 
-    text-align: center;
-}
+    <!-- Footer -->
+    <footer>
 
-.about-content > p:first-child {
-    color: #2563eb;
+        <div class="footer-logos">
 
-    font-size: 14px;
+            <img src="images/mcc.png" alt="MCC Logo">
 
-    font-weight: bold;
+            <img src="images/images.jpg"
+                 alt="Institute of Teacher Education Logo">
 
-    letter-spacing: 3px;
-}
+        </div>
 
-.about h2 {
-    font-size: 40px;
 
-    margin: 10px 0 20px;
-}
+        <h3>
+            Researchers and Developers
+        </h3>
 
-.about-content p:last-child {
-    color: #64748b;
+        <p>
+            Escoto Yllizha
+        </p>
 
-    font-size: 17px;
-}
+        <p>
+            Roque Jazztine
+        </p>
 
+        <p>
+            Nacpil Deniel Angelo
+        </p>
 
-/* ================================
-   FOOTER
-================================ */
+        <p>
+            Institute of Teacher Education
+        </p>
 
-footer {
-    background: #0f172a;
+        <p>
+            © 2026 DI Textbook Resource Portal
+        </p>
 
-    color: white;
+    </footer>
 
-    text-align: center;
 
-    padding: 50px 20px;
-}
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
-.footer-logos {
-    display: flex;
+</body>
 
-    justify-content: center;
-
-    gap: 15px;
-
-    margin-bottom: 20px;
-}
-
-.footer-logos img {
-    width: 45px;
-    height: 45px;
-
-    object-fit: contain;
-}
-
-footer h3 {
-    margin-bottom: 15px;
-}
-
-footer p {
-    margin: 5px 0;
-
-    color: #cbd5e1;
-}
-
-
-/* ================================
-   MOBILE RESPONSIVE DESIGN
-================================ */
-
-@media (max-width: 768px) {
-
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        gap: 18px;
-    }
-
-    .hero {
-        min-height: 600px;
-        padding: 60px 20px;
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero h2 {
-        font-size: 22px;
-    }
-
-    .description {
-        font-size: 16px;
-    }
-
-    .resource-container {
-        grid-template-columns: 1fr;
-
-        max-width: 500px;
-    }
-
-    .section-title h2 {
-        font-size: 30px;
-    }
-
-    .about h2 {
-        font-size: 32px;
-    }
-}
+</html>
