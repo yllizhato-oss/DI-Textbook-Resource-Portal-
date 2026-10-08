@@ -1,17 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-
-:root {
-    --navy: #102a68;
-    --blue: #174ea6;
-    --red: #a71930;
-    --gold: #c7a24a;
-    --cream: #f8f6f1;
-    --white: #ffffff;
-    --text: #1d2433;
-    --muted: #667085;
-}
+/* ================================
+   GENERAL SETTINGS
+================================ */
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -20,205 +13,343 @@ html {
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: 'Inter', sans-serif;
-    color: var(--text);
-    background:
-        radial-gradient(circle at 15% 10%, rgba(23, 78, 166, 0.10), transparent 30%),
-        radial-gradient(circle at 85% 90%, rgba(167, 25, 48, 0.08), transparent 30%),
-        var(--cream);
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f9fc;
+    color: #1f2937;
+    line-height: 1.6;
 }
 
-.landing-page {
-    width: min(100%, 1050px);
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 55px 28px 35px;
+
+/* ================================
+   NAVIGATION BAR
+================================ */
+
+header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 30px;
+
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
 }
 
-.logo-row {
+.logos {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 28px;
-    margin-bottom: 24px;
+    gap: 12px;
 }
 
-.school-logo {
-    width: 125px;
-    height: 125px;
+.logos img {
+    width: 55px;
+    height: 55px;
     object-fit: contain;
-    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.12));
 }
 
-.institution {
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+
+/* ================================
+   HERO SECTION
+================================ */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            rgba(15, 23, 42, 0.78),
+            rgba(30, 64, 175, 0.78)
+        ),
+        url("images/ite.png");
+
+    background-size: cover;
+    background-position: center;
 }
 
-.school-name {
-    margin: 0 0 8px;
-    color: var(--red);
-    font-size: clamp(0.9rem, 2vw, 1.05rem);
-    font-weight: 800;
-    letter-spacing: 0.16em;
+.hero-content {
+    max-width: 800px;
+    color: white;
 }
 
-h1 {
-    margin: 0;
-    color: var(--navy);
-    font-size: clamp(1.35rem, 4vw, 2.25rem);
-    font-weight: 800;
-    letter-spacing: 0.08em;
+.welcome {
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-.divider {
-    width: min(100%, 560px);
-    height: 2px;
-    margin: 26px 0 32px;
-    background: linear-gradient(
-        to right,
-        transparent,
-        var(--gold),
-        var(--blue),
-        var(--gold),
-        transparent
-    );
-}
-
-.research-intro {
-    max-width: 760px;
-}
-
-.eyebrow {
-    margin: 0 0 13px;
-    color: var(--blue);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.22em;
-}
-
-h2 {
-    margin: 0;
-    color: var(--text);
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 6vw, 3.6rem);
-    line-height: 1.12;
-    font-weight: 700;
-}
-
-h2 span {
-    display: block;
-    color: var(--navy);
+.hero h1 {
+    font-size: 60px;
+    line-height: 1.1;
+    margin-bottom: 25px;
 }
 
 .description {
-    max-width: 600px;
-    margin: 20px auto 0;
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 18px;
+    max-width: 650px;
+    margin: 0 auto 35px;
 }
 
-.researchers {
-    margin-top: 30px;
-}
+.explore-button {
+    display: inline-block;
 
-.researchers p {
-    margin: 0 0 5px;
-    color: var(--muted);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-}
+    padding: 14px 30px;
 
-.researchers h3 {
-    margin: 0;
-    color: var(--navy);
-    font-size: 1rem;
-    font-weight: 600;
-}
+    background: white;
+    color: #1d4ed8;
 
-.enter-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 30px;
-    padding: 15px 27px;
-    color: var(--white);
-    background: linear-gradient(135deg, var(--navy), var(--blue));
-    border-radius: 999px;
-    box-shadow: 0 12px 25px rgba(16, 42, 104, 0.22);
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
 }
 
-.enter-button span {
-    font-size: 1.2rem;
-    transition: transform 0.2s ease;
-}
-
-.enter-button:hover {
+.explore-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 30px rgba(16, 42, 104, 0.28);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.enter-button:hover span {
-    transform: translateX(4px);
+
+/* ================================
+   RESOURCES SECTION
+================================ */
+
+.resources {
+    padding: 90px 20px;
+    background: white;
 }
 
-.enter-button:focus-visible {
-    outline: 4px solid rgba(199, 162, 74, 0.45);
-    outline-offset: 4px;
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.prototype-note {
-    margin: 28px 0 0;
-    color: #98a2b3;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
+.section-title p {
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 
-@media (max-width: 600px) {
-    .landing-page {
-        padding: 35px 20px 28px;
+.section-title h2 {
+    font-size: 38px;
+    margin-top: 8px;
+}
+
+.resource-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.resource-card {
+    background: #f8fafc;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    transition: 0.3s;
+}
+
+.resource-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.resource-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.resource-card p {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.resource-card button {
+    border: none;
+
+    background: #2563eb;
+    color: white;
+
+    padding: 10px 20px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.resource-card button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ================================
+   ABOUT SECTION
+================================ */
+
+.about {
+    padding: 100px 20px;
+
+    background: #eff6ff;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.about-content > p:first-child {
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.about h2 {
+    font-size: 40px;
+    margin: 10px 0 20px;
+}
+
+.about-content p:last-child {
+    color: #64748b;
+    font-size: 17px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    background: #0f172a;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.footer-logos {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+.footer-logos img {
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+}
+
+footer p {
+    margin: 5px 0;
+
+    color: #cbd5e1;
+}
+
+
+/* ================================
+   MOBILE RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .logo-row {
-        gap: 16px;
+    .nav-links {
+        gap: 18px;
     }
 
-    .school-logo {
-        width: 92px;
-        height: 92px;
+    .hero {
+        min-height: 550px;
     }
 
-    .school-name {
-        letter-spacing: 0.10em;
-    }
-
-    h1 {
-        letter-spacing: 0.04em;
-        line-height: 1.25;
-    }
-
-    .divider {
-        margin: 22px 0 26px;
-    }
-
-    h2 {
-        font-size: 2rem;
+    .hero h1 {
+        font-size: 40px;
     }
 
     .description {
-        font-size: 0.92rem;
+        font-size: 16px;
+    }
+
+    .resource-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .about h2 {
+        font-size: 32px;
     }
 }
