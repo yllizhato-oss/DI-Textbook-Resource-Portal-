@@ -86,20 +86,11 @@ header {
 
     padding: 80px 20px;
 
-    background:
-        linear-gradient(
-            rgba(15, 23, 42, 0.78),
-            rgba(30, 64, 175, 0.78)
-        ),
-        url("images/ite.png");
-
-    background-size: cover;
-    background-position: center;
-}
+ background: linear-gradient(135deg, #eff6ff, #ffffff);
 
 .hero-content {
     max-width: 800px;
-    color: white;
+    color: #1f2937;
 }
 
 .welcome {
