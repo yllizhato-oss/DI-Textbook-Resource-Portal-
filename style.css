@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --navy: #102a68;
+    --blue: #174ea6;
+    --red: #a71930;
+    --gold: #c7a24a;
+    --cream: #f8f6f1;
+    --white: #ffffff;
+    --text: #1d2433;
+    --muted: #667085;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(23, 78, 166, 0.10), transparent 30%),
+        radial-gradient(circle at 85% 90%, rgba(167, 25, 48, 0.08), transparent 30%),
+        var(--cream);
+}
+
+.landing-page {
+    width: min(100%, 1050px);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 55px 28px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 24px;
+}
+
+.school-logo {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.12));
+}
+
+.institution {
+    text-align: center;
+}
+
+.school-name {
+    margin: 0 0 8px;
+    color: var(--red);
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+h1 {
+    margin: 0;
+    color: var(--navy);
+    font-size: clamp(1.35rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.divider {
+    width: min(100%, 560px);
+    height: 2px;
+    margin: 26px 0 32px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold),
+        var(--blue),
+        var(--gold),
+        transparent
+    );
+}
+
+.research-intro {
+    max-width: 760px;
+}
+
+.eyebrow {
+    margin: 0 0 13px;
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+}
+
+h2 {
+    margin: 0;
+    color: var(--text);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    line-height: 1.12;
+    font-weight: 700;
+}
+
+h2 span {
+    display: block;
+    color: var(--navy);
+}
+
+.description {
+    max-width: 600px;
+    margin: 20px auto 0;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.researchers {
+    margin-top: 30px;
+}
+
+.researchers p {
+    margin: 0 0 5px;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+}
+
+.researchers h3 {
+    margin: 0;
+    color: var(--navy);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.enter-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 15px 27px;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    border-radius: 999px;
+    box-shadow: 0 12px 25px rgba(16, 42, 104, 0.22);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.enter-button span {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.enter-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 30px rgba(16, 42, 104, 0.28);
+}
+
+.enter-button:hover span {
+    transform: translateX(4px);
+}
+
+.enter-button:focus-visible {
+    outline: 4px solid rgba(199, 162, 74, 0.45);
+    outline-offset: 4px;
+}
+
+.prototype-note {
+    margin: 28px 0 0;
+    color: #98a2b3;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+}
+
+@media (max-width: 600px) {
+    .landing-page {
+        padding: 35px 20px 28px;
+    }
+
+    .logo-row {
+        gap: 16px;
+    }
+
+    .school-logo {
+        width: 92px;
+        height: 92px;
+    }
+
+    .school-name {
+        letter-spacing: 0.10em;
+    }
+
+    h1 {
+        letter-spacing: 0.04em;
+        line-height: 1.25;
+    }
+
+    .divider {
+        margin: 22px 0 26px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 0.92rem;
+    }
+}
